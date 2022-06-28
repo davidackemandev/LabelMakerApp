@@ -21,7 +21,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" >
-                <TextBlock Text="Model" Margin="{StaticResource Margin10B}"/>
+                <TextBlock Text="Model" Margin="{StaticResource Margin6B}"/>
                 <ComboBox 
                     x:Name="ModelNumberInput" 
                     DisplayMemberPath="ModelNumber"  
@@ -30,7 +30,7 @@
                     Margin="{StaticResource Margin10B}" 
                     SelectionChanged="ModelNumberInput_SelectionChanged"
                     />
-                <TextBlock Text="Serial Number" Margin="{StaticResource Margin10B}"/>
+                <TextBlock Text="Serial Number" Margin="{StaticResource Margin6B}"/>
                 <TextBox x:Name="SerialNumberInput" Text="" Margin="{StaticResource Margin10B}" TextChanged="SerialNumberInput_TextChanged"/>
             </StackPanel>
             <!--3"x2" label-->
