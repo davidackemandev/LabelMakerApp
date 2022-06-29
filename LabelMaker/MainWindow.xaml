@@ -9,6 +9,7 @@
     <Window.Resources>
         <Style TargetType="{x:Type Window}">
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Arial" />
         </Style>
         <Thickness x:Key="Margin10B">0,0,0,10</Thickness>
         <Thickness x:Key="Margin6B">0,0,0,6</Thickness>
@@ -35,10 +36,11 @@
             </StackPanel>
             <!--3"x2" label-->
             <Border 
+                VerticalAlignment="Center"
+                x:Name="LabelTemplate"
                 Grid.Row="1" 
                 Height="192" 
                 Width="288" 
-                VerticalAlignment="Center" 
                 BorderBrush="Black" 
                 BorderThickness="1" 
                 CornerRadius="8"

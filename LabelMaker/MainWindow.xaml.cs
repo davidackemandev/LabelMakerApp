@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Printing;
 
 namespace LabelMaker
 {
@@ -39,16 +40,17 @@ namespace LabelMaker
             });
         }
 
-        //public function to get row by model number string
-
         // START EVENTS
         string SerialNumberValue;
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
         {
-            string SerialNumberValue;
-            if (!string.IsNullOrWhiteSpace(SerialNumberInput.Text) && !string.IsNullOrWhiteSpace(ModelNumberInput.Text))
+            PrintDialog printDlg = new();
+            if (printDlg.ShowDialog() == true)
             {
-                SerialNumberValue = ModelNumberInput.Text;
+                LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(288, 192)));
+                //printDlg.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.Unknown, 288, 192);
+                //printDlg.PrintTicket.PageBorderless = PageBorderless.Borderless;
+                printDlg.PrintVisual(LabelTemplate, "Print Label");
             }
         }
 
@@ -60,20 +62,20 @@ namespace LabelMaker
         private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ModelNumberOutput.Text = ((ComboBox)sender).SelectedValue.ToString();
-        
+
         }
 
-    public class Product
-    {
-        public string ModelNumber { get; set; }
-        public string Description { get; set; }
-
-        public Product(string modelNumber, string description)
+        public class Product
         {
-            ModelNumber = modelNumber;
-            Description = description;
+            public string ModelNumber { get; set; }
+            public string Description { get; set; }
+
+            public Product(string modelNumber, string description)
+            {
+                ModelNumber = modelNumber;
+                Description = description;
+            }
+
         }
-       
-    }
     }
 }
