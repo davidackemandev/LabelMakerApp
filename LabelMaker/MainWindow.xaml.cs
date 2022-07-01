@@ -23,11 +23,14 @@ namespace LabelMaker
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Product[] _products;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            ModelNumberInput.ItemsSource = ReadCSV();
+            _products = ReadCSV().ToArray();
+            ModelNumberInput.ItemsSource = _products;
         }
         public IEnumerable<Product> ReadCSV()
         {
@@ -47,22 +50,29 @@ namespace LabelMaker
             PrintDialog printDlg = new();
             if (printDlg.ShowDialog() == true)
             {
+                Point original = LabelTemplate.TranslatePoint(new Point(0, 0), this);
+                original = new Point(original.X - 8, original.Y - 8); // WHY DOES THIS FIX IT!?
                 LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(288, 192)));
                 //printDlg.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.Unknown, 288, 192);
                 //printDlg.PrintTicket.PageBorderless = PageBorderless.Borderless;
                 printDlg.PrintVisual(LabelTemplate, "Print Label");
+                LabelTemplate.Arrange(new Rect(original, new Size(288, 192)));
             }
         }
 
         private void SerialNumberInput_TextChanged(object sender, TextChangedEventArgs e)
         {
             SerialNumberOutput.Text = SerialNumberInput.Text;
+            SerialNumberBarcode.Code = SerialNumberInput.Text;
         }
 
         private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ModelNumberOutput.Text = ((ComboBox)sender).SelectedValue.ToString();
-
+            string model = ((ComboBox)sender).SelectedValue.ToString()!;
+            ModelNumberOutput.Text = model;
+            ModelNumberBarcode.Code = model;
+            string description = _products.First(product => product.ModelNumber == model).Description;
+            ModelDescriptionOutput.Text = description;
         }
 
         public class Product

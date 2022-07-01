@@ -62,9 +62,8 @@
                         Height="18" 
                         Code="1SS223" 
                         CodeType="Code128A" 
-                        BarWidth="2" 
-                        TextVisibility="Collapsed" 
-                        Code39WideRate="2"
+                        BarWidth="1.6" 
+                        TextVisibility="Collapsed"
                         />
                     <TextBlock x:Name="ModelDescriptionOutput" Text="Model Description" Margin="{StaticResource Margin10B}"/>
                     <StackPanel Orientation="Horizontal" Margin="{StaticResource Margin6B}">
@@ -76,11 +75,10 @@
                         HorizontalAlignment="Left"
                         Margin="{StaticResource Margin10B}"
                         Height="18" 
-                        Code="1SS223" 
+                        Code="1234567" 
                         CodeType="Code128A" 
-                        BarWidth="2" 
+                        BarWidth="1.6"
                         TextVisibility="Collapsed"
-                        Code39WideRate="2"
                         />
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -93,7 +91,6 @@
                             <TextBlock Text="Logo"/>
                             <TextBlock Text="www.mark-10.com"/>
                         </StackPanel>
-                        
                     </Grid>
                 </StackPanel>
             </Border>
