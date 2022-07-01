@@ -52,7 +52,6 @@ namespace LabelMaker
             {
                 Transform originalScale = LabelTemplate.LayoutTransform;
                 Size originalSize = new Size(LabelTemplate.ActualWidth, LabelTemplate.ActualHeight);
-                //original = new Point(original.X - 8, original.Y - 8); // WHY DOES THIS FIX IT!?
                 LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(288, 192)));
                 //printDlg.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.Unknown, 288, 192);
                 //printDlg.PrintTicket.PageBorderless = PageBorderless.Borderless;
