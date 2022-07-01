@@ -52,14 +52,14 @@ namespace LabelMaker
             {
                 Transform originalScale = LabelTemplate.LayoutTransform;
                 Size originalSize = new Size(LabelTemplate.ActualWidth, LabelTemplate.ActualHeight);
-                LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(288, 192)));
+                LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(LabelTemplate.ActualWidth, LabelTemplate.ActualHeight)));
                 //printDlg.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.Unknown, 288, 192);
                 //printDlg.PrintTicket.PageBorderless = PageBorderless.Borderless;
                 printDlg.PrintVisual(LabelTemplate, "Print Label");
 
                 LabelTemplate.LayoutTransform = originalScale;
                 LabelTemplate.Measure(originalSize);
-                LabelTemplate.Arrange(new Rect(new Point(0, 0), originalSize));
+                LabelTemplate.Arrange(new Rect(new Point(1, 1), originalSize));
             }
         }
 
