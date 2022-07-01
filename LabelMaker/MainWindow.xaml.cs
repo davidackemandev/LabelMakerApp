@@ -51,8 +51,8 @@ namespace LabelMaker
             if (printDlg.ShowDialog() == true)
             {
                 Transform originalScale = LabelTemplate.LayoutTransform;
-                Size originalSize = new Size(LabelTemplate.ActualWidth, LabelTemplate.ActualHeight);
-                LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(LabelTemplate.ActualWidth, LabelTemplate.ActualHeight)));
+                Size originalSize = new Size(LabelTemplate.Width, LabelTemplate.Height);
+                LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(LabelTemplate.Width, LabelTemplate.Height)));
                 //printDlg.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.Unknown, 288, 192);
                 //printDlg.PrintTicket.PageBorderless = PageBorderless.Borderless;
                 printDlg.PrintVisual(LabelTemplate, "Print Label");
