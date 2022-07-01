@@ -44,7 +44,6 @@ namespace LabelMaker
         }
 
         // START EVENTS
-        string SerialNumberValue;
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog printDlg = new();
