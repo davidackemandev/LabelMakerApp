@@ -34,16 +34,19 @@
                 <TextBlock Text="Serial Number" Margin="{StaticResource Margin6B}"/>
                 <TextBox x:Name="SerialNumberInput" Text="" Margin="{StaticResource Margin10B}" TextChanged="SerialNumberInput_TextChanged"/>
             </StackPanel>
-            <!--3"x2" label-->
+            <Border 
+                Grid.Row="1" 
+                BorderBrush="Black" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center" 
+                CornerRadius="8"
+                BorderThickness="1">
+                <!--3"x2" label-->
             <Border 
                 VerticalAlignment="Center"
                 x:Name="LabelTemplate"
-                Grid.Row="1" 
                 Height="192" 
-                Width="288" 
-                BorderBrush="Black" 
-                BorderThickness="1" 
-                CornerRadius="8"
+                Width="288"
                 Padding="20">
                 <Border.Resources>
                     <Style TargetType="TextBlock">
@@ -93,6 +96,7 @@
                         </StackPanel>
                     </Grid>
                 </StackPanel>
+            </Border>
             </Border>
             <Border Grid.Row="2">
                 <Button Content="Print" Margin="{StaticResource Margin10B}" Click="ButtonPrint_Click"/>

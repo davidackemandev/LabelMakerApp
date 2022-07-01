@@ -50,13 +50,17 @@ namespace LabelMaker
             PrintDialog printDlg = new();
             if (printDlg.ShowDialog() == true)
             {
-                Point original = LabelTemplate.TranslatePoint(new Point(0, 0), this);
-                original = new Point(original.X - 8, original.Y - 8); // WHY DOES THIS FIX IT!?
+                Transform originalScale = LabelTemplate.LayoutTransform;
+                Size originalSize = new Size(LabelTemplate.ActualWidth, LabelTemplate.ActualHeight);
+                //original = new Point(original.X - 8, original.Y - 8); // WHY DOES THIS FIX IT!?
                 LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(288, 192)));
                 //printDlg.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.Unknown, 288, 192);
                 //printDlg.PrintTicket.PageBorderless = PageBorderless.Borderless;
                 printDlg.PrintVisual(LabelTemplate, "Print Label");
-                LabelTemplate.Arrange(new Rect(original, new Size(288, 192)));
+
+                LabelTemplate.LayoutTransform = originalScale;
+                LabelTemplate.Measure(originalSize);
+                LabelTemplate.Arrange(new Rect(new Point(0, 0), originalSize));
             }
         }
 
