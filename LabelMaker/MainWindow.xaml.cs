@@ -29,19 +29,19 @@ namespace LabelMaker
         {
             InitializeComponent();
 
-            _products = ReadCSV().ToArray();
-            ModelNumberInput.ItemsSource = _products;
+            //_products = ReadCSV().ToArray();
+            //ModelNumberInput.ItemsSource = _products;
         }
-        public IEnumerable<Product> ReadCSV()
-        {
-            string[] lines = File.ReadAllLines(@"modelsdata.csv");
+        //public IEnumerable<Product> ReadCSV()
+        //{
+        //    string[] lines = File.ReadAllLines(@"modelsdata.csv");
 
-            return lines.Select(line =>
-            {
-                string[] data = line.Split(',');
-                return new Product(data[0], data[1]);
-            });
-        }
+        //    return lines.Select(line =>
+        //    {
+        //        string[] data = line.Split(',');
+        //        return new Product(data[0], data[1]);
+        //    });
+        //}
 
         // START EVENTS
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
