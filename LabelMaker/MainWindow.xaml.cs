@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Printing;
+using LabelMaker;
 
 namespace LabelMaker
 {
@@ -23,12 +24,15 @@ namespace LabelMaker
     /// </summary>
     public partial class MainWindow : Window
     {
+
         private Product[] _products;
 
         public MainWindow()
         {
             InitializeComponent();
 
+            //Settings1.Default.PathToCSV = "herewego";
+            SerialNumberInput.Text = Settings1.Default.PathToCSV;
             //_products = ReadCSV().ToArray();
             //ModelNumberInput.ItemsSource = _products;
         }
@@ -49,6 +53,7 @@ namespace LabelMaker
             PrintDialog printDlg = new();
             if (printDlg.ShowDialog() == true)
             {
+              
                 Transform originalScale = LabelTemplate.LayoutTransform;
                 Size originalSize = new Size(LabelTemplate.Width, LabelTemplate.Height);
                 LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(LabelTemplate.Width, LabelTemplate.Height)));
@@ -66,6 +71,8 @@ namespace LabelMaker
         {
             SerialNumberOutput.Text = SerialNumberInput.Text;
             SerialNumberBarcode.Code = SerialNumberInput.Text;
+            Settings1.Default.PathToCSV = SerialNumberInput.Text;
+            Settings1.Default.Save();
         }
 
         private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
