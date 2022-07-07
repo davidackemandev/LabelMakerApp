@@ -8,14 +8,13 @@
       mc:Ignorable="d" 
       Title="MainPage">
     <Page.Resources>
-        <Style TargetType="{x:Type Window}">
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="FontFamily" Value="Arial" />
-        </Style>
-        <Thickness x:Key="Margin10B">0,0,0,10</Thickness>
-        <Thickness x:Key="Margin6B">0,0,0,6</Thickness>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Page.Resources>
-    <Border Padding="8">
+    <Border>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -23,6 +22,14 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" >
+                <TextBlock Text="Label size" Margin="{StaticResource Margin6B}"/>
+                <ComboBox 
+                    SelectedIndex="0"
+                    Margin="{StaticResource Margin10B}" 
+                    >
+                    <ComboBoxItem>3"x2"_serialized</ComboBoxItem>
+                    <ComboBoxItem>2.641"x1"_nonserialized</ComboBoxItem>
+                </ComboBox>
                 <TextBlock Text="Model" Margin="{StaticResource Margin6B}"/>
                 <ComboBox 
                     x:Name="ModelNumberInput" 
@@ -100,7 +107,16 @@
                 </Border>
             </Border>
             <Border Grid.Row="2">
-                <Button Content="Print" Margin="{StaticResource Margin10B}" Click="ButtonPrint_Click"/>
+                <Button 
+                    Content="Print" 
+                    Margin="{StaticResource Margin10B}" 
+                    Click="ButtonPrint_Click"
+                    Height="60"
+                    Background="Green"
+                    FontWeight="Bold"
+                    FontSize="20"
+                    Foreground="White"
+                    />
             </Border>
         </Grid>
     </Border>

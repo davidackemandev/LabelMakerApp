@@ -28,11 +28,20 @@ namespace LabelMaker
         {
             InitializeComponent();
             mainFrame.Content = new MainPage();
+            MainPageButton.Visibility = Visibility.Collapsed;
         }
 
-        private void NavBtn_Click(object sender, RoutedEventArgs e)
+        private void SettingsPageButton_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Content = new SettingsPage();
+            SettingsPageButton.Visibility = Visibility.Collapsed;
+            MainPageButton.Visibility = Visibility.Visible;
+        }
+        private void MainPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new MainPage();
+            SettingsPageButton.Visibility = Visibility.Visible;
+            MainPageButton.Visibility = Visibility.Collapsed;
         }
 
     }

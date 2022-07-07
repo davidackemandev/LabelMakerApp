@@ -4,21 +4,55 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LabelMaker"
+      d:DesignHeight="650" d:DesignWidth="450"
       mc:Ignorable="d" 
-      Height="450" Width="350"
       Title="SettingsPage">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="mainFrame"/>
-        <Button 
-            x:Name="navBtn" 
-            HorizontalAlignment="Right" 
-            Click="NavBtn_Click"
-            >
-            Settings
-        </Button>
+        <StackPanel>
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="6" Padding="6">
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >3"x2"_serialized</TextBlock>
+                    <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
+                    <TextBox 
+                x:Name="CSVPathInput1"
+                Text="" 
+                Margin="{StaticResource Margin10B}" 
+                />
+                    <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
+                    <TextBox 
+                x:Name="PrinterPathInput1"
+                Text="" 
+                Margin="{StaticResource Margin10B}" 
+                />
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="6" Padding="6">
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >2.641"x1"_serialized</TextBlock>
+            <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
+            <TextBox 
+                x:Name="CSVPathInput2"
+                Text="" 
+                Margin="{StaticResource Margin10B}" 
+                />
+            <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
+            <TextBox 
+                x:Name="PrinterPathInput2"
+                Text="" 
+                Margin="{StaticResource Margin10B}" 
+                />
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Grid>
 </Page>

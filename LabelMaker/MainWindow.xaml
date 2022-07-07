@@ -5,22 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabelMaker" xmlns:wpfbarcode1="clr-namespace:WpfBarCode;assembly=WpfBarCode"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="350">
-
-    <Grid>
+        Title="MainWindow" Height="650" Width="450">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border Padding="8,0,8,8">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button 
-            x:Name="navBtn" 
-            Grid.Row="0"
-            HorizontalAlignment="Right" 
-            Click="NavBtn_Click"
+            <Grid Grid.Row="0" Margin="{StaticResource Margin10B}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button 
+            x:Name="SettingsPageButton" 
+            Click="SettingsPageButton_Click"
+            Grid.Column="0" 
             >
-            Settings
-        </Button>
-        <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+                    Settings
+                </Button>
+                <Button 
+            x:Name="MainPageButton" 
+            Click="MainPageButton_Click"
+            Grid.Column="0"            
+            >
+                    Back
+                </Button>
+            </Grid>
+            <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
-    
+    </Border>
 </Window>

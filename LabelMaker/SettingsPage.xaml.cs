@@ -24,10 +24,5 @@ namespace LabelMaker
         {
             InitializeComponent();
         }
-
-        private void NavBtn_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Content = new MainWindow();
-        }
     }
 }

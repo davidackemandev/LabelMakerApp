@@ -34,5 +34,17 @@ namespace LabelMaker {
                 this["PathToCSV"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3\"x2\"_serialized")]
+        public string ActiveLabelSize {
+            get {
+                return ((string)(this["ActiveLabelSize"]));
+            }
+            set {
+                this["ActiveLabelSize"] = value;
+            }
+        }
     }
 }
