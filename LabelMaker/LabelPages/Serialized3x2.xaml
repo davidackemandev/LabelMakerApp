@@ -69,7 +69,12 @@
                         BarWidth="1.6" 
                         TextVisibility="Collapsed"
                         />
-                    <TextBlock x:Name="ModelDescriptionOutput" Text="Model Description" Margin="{StaticResource Margin10B}"/>
+                    <TextBlock 
+                        x:Name="ModelDescriptionOutput" 
+                        Text="Model Description" 
+                        Margin="{StaticResource Margin10B}"
+                        TextWrapping="Wrap"
+                        />
                     <StackPanel Orientation="Horizontal" Margin="{StaticResource Margin6B}">
                         <TextBlock x:Name="SerialNumberLabel" Text="SERIAL NO: "/>
                         <TextBlock x:Name="SerialNumberOutput" Text="SERIAL NO" FontWeight="Bold"/>
