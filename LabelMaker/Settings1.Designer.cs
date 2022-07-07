@@ -25,18 +25,6 @@ namespace LabelMaker {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"test\"")]
-        public string PathToCSV {
-            get {
-                return ((string)(this["PathToCSV"]));
-            }
-            set {
-                this["PathToCSV"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3\"x2\"_serialized")]
         public string ActiveLabelSize {
             get {
@@ -44,6 +32,54 @@ namespace LabelMaker {
             }
             set {
                 this["ActiveLabelSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PathToCSV3x2 {
+            get {
+                return ((string)(this["PathToCSV3x2"]));
+            }
+            set {
+                this["PathToCSV3x2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PathToCSV2x1 {
+            get {
+                return ((string)(this["PathToCSV2x1"]));
+            }
+            set {
+                this["PathToCSV2x1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Printer3x2 {
+            get {
+                return ((string)(this["Printer3x2"]));
+            }
+            set {
+                this["Printer3x2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Printer2x1 {
+            get {
+                return ((string)(this["Printer2x1"]));
+            }
+            set {
+                this["Printer2x1"] = value;
             }
         }
     }

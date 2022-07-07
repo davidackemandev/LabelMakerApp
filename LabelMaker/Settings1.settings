@@ -2,11 +2,20 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LabelMaker" GeneratedClassName="Settings1">
   <Profiles />
   <Settings>
-    <Setting Name="PathToCSV" Type="System.String" Scope="User">
-      <Value Profile="(Default)">"test"</Value>
-    </Setting>
     <Setting Name="ActiveLabelSize" Type="System.String" Scope="User">
       <Value Profile="(Default)">3"x2"_serialized</Value>
+    </Setting>
+    <Setting Name="PathToCSV3x2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PathToCSV2x1" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Printer3x2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Printer2x1" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

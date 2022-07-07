@@ -21,9 +21,33 @@ namespace LabelMaker.UserControls
     /// </summary>
     public partial class PrinterSelector : UserControl
     {
+        public string LabelSize
+        {
+            get { return (string)GetValue(LabelSizeProperty); }
+            set { SetValue(LabelSizeProperty, value); }
+        }
+
+        public static readonly DependencyProperty LabelSizeProperty =
+            DependencyProperty.Register("LabelSize", typeof(string), typeof(PrinterSelector), new PropertyMetadata(default(string)));
+
+        
+
         public PrinterSelector()
         {
             InitializeComponent();
+            this.Loaded += UserControl_Loaded;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (LabelSize == "Serialized3x2")
+            {
+                SelectedPathTxtBox.Text = Settings1.Default.Printer3x2;
+            }
+            else if (LabelSize == "NonSerialized2x1")
+            {
+                SelectedPathTxtBox.Text = Settings1.Default.Printer2x1;
+            }
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
@@ -36,6 +60,19 @@ namespace LabelMaker.UserControls
             if (result == true)
             {
                 SelectedPathTxtBox.Text = dialog.PrintQueue.FullName;
+            }
+        }
+
+        private void SelectedPathTxtBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (LabelSize == "Serialized3x2")
+            {
+                Settings1.Default.Printer3x2 = SelectedPathTxtBox.Text;
+                Settings1.Default.Save();
+            } else if(LabelSize == "NonSerialized2x1")
+            {
+                Settings1.Default.Printer2x1 = SelectedPathTxtBox.Text;
+                Settings1.Default.Save();
             }
         }
     }

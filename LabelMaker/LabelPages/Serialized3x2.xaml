@@ -47,7 +47,7 @@
                 x:Name="LabelTemplate"
                 Height="192" 
                 Width="288"
-                Padding="20">
+                Padding="15">
                 <Border.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="FontSize" Value="11" />

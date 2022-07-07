@@ -24,7 +24,6 @@ namespace LabelMaker.LabelPages
         public Serialized3x2()
         {
             InitializeComponent();
-            SerialNumberInput.Text = Settings1.Default.PathToCSV;
         }
 
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
@@ -50,9 +49,7 @@ namespace LabelMaker.LabelPages
         {
             SerialNumberOutput.Text = SerialNumberInput.Text;
             SerialNumberBarcode.Code = SerialNumberInput.Text;
-            Settings1.Default.PathToCSV = SerialNumberInput.Text;
-            Settings1.Default.Save();
-        }
+            }
 
         private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
