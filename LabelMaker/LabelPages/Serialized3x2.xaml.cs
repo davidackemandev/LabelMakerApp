@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +26,20 @@ namespace LabelMaker.LabelPages
         public Serialized3x2()
         {
             InitializeComponent();
+
+            _products = ReadCSV().ToArray();
+            ModelNumberInput.ItemsSource = _products;
+        }
+        public IEnumerable<Product> ReadCSV()
+        {
+            string[] lines = File.ReadAllLines(Settings1.Default.PathToCSV3x2);
+            Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+
+            return lines.Select(line =>
+            {
+                string[] data = CSVParser.Split(line);
+                return new Product(data[0], data[1]);
+            });
         }
 
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
@@ -57,7 +73,7 @@ namespace LabelMaker.LabelPages
             ModelNumberOutput.Text = model;
             ModelNumberBarcode.Code = model;
             string description = _products.First(product => product.ModelNumber == model).Description;
-            ModelDescriptionOutput.Text = description;
+            ModelDescriptionOutput.Text = description.Trim('"');
         }
 
         public class Product

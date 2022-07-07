@@ -31,7 +31,6 @@ namespace LabelMaker.UserControls
             DependencyProperty.Register("LabelSize", typeof(string), typeof(PrinterSelector), new PropertyMetadata(default(string)));
 
 
-
         public PrinterSelector()
         {
             InitializeComponent();
