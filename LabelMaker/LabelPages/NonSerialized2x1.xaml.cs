@@ -18,11 +18,21 @@ namespace LabelMaker.LabelPages
     /// <summary>
     /// Interaction logic for _2x1_nonserialized.xaml
     /// </summary>
-    public partial class _2x1_nonserialized : Page
+    public partial class NonSerialized2x1 : Page
     {
-        public _2x1_nonserialized()
+        public NonSerialized2x1()
         {
             InitializeComponent();
+        }
+
+        private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ButtonPrint_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

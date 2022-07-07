@@ -20,61 +20,22 @@ namespace LabelMaker
     /// </summary>
     public partial class MainPage : Page
     {
-        private Product[] _products;
         public MainPage()
         {
             InitializeComponent();
-            SerialNumberInput.Text = Settings1.Default.PathToCSV;
+            LabelPagesFrame.Content = new LabelPages.Serialized3x2();
+            LabelSizeComboBox.SelectedIndex = 0;
         }
 
-        private void ButtonPrint_Click(object sender, RoutedEventArgs e)
+        private void LabelSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            PrintDialog printDlg = new();
-            if (printDlg.ShowDialog() == true)
+            ComboBoxItem LabelSize = (ComboBoxItem)LabelSizeComboBox.SelectedValue;
+            if (LabelSize.Content.ToString() == "3x2_serialized"){
+                LabelPagesFrame.Content = new LabelPages.Serialized3x2();
+            } else if(LabelSize.Content.ToString() == "2.641x1_nonserialized")
             {
-
-                Transform originalScale = LabelTemplate.LayoutTransform;
-                Size originalSize = new Size(LabelTemplate.Width, LabelTemplate.Height);
-                LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(LabelTemplate.Width, LabelTemplate.Height)));
-                //printDlg.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.Unknown, 288, 192);
-                //printDlg.PrintTicket.PageBorderless = PageBorderless.Borderless;
-                printDlg.PrintVisual(LabelTemplate, "Print Label");
-
-                LabelTemplate.LayoutTransform = originalScale;
-                LabelTemplate.Measure(originalSize);
-                LabelTemplate.Arrange(new Rect(new Point(1, 1), originalSize));
+                LabelPagesFrame.Content = new LabelPages.NonSerialized2x1();
             }
         }
-
-        private void SerialNumberInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            SerialNumberOutput.Text = SerialNumberInput.Text;
-            SerialNumberBarcode.Code = SerialNumberInput.Text;
-            Settings1.Default.PathToCSV = SerialNumberInput.Text;
-            Settings1.Default.Save();
-        }
-
-        private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string model = ((ComboBox)sender).SelectedValue.ToString()!;
-            ModelNumberOutput.Text = model;
-            ModelNumberBarcode.Code = model;
-            string description = _products.First(product => product.ModelNumber == model).Description;
-            ModelDescriptionOutput.Text = description;
-        }
-
-        public class Product
-        {
-            public string ModelNumber { get; set; }
-            public string Description { get; set; }
-
-            public Product(string modelNumber, string description)
-            {
-                ModelNumber = modelNumber;
-                Description = description;
-            }
-
-        }
-
     }
 }

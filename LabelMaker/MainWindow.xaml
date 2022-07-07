@@ -15,10 +15,10 @@
     </Window.Resources>
     <Border Padding="8,0,8,8">
         <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="{StaticResource Margin10B}" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -40,6 +40,6 @@
                 </Button>
             </Grid>
             <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
-    </Grid>
+        </Grid>
     </Border>
 </Window>

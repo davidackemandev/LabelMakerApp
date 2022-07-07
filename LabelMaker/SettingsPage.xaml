@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LabelMaker"
+      xmlns:controls ="clr-namespace:LabelMaker.UserControls"
       d:DesignHeight="650" d:DesignWidth="450"
       mc:Ignorable="d" 
       Title="SettingsPage">
@@ -23,34 +24,18 @@
                 <StackPanel>
                     <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >3"x2"_serialized</TextBlock>
                     <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
-                    <TextBox 
-                x:Name="CSVPathInput1"
-                Text="" 
-                Margin="{StaticResource Margin10B}" 
-                />
+                    <controls:FilePathSelector Margin="{StaticResource Margin6B}" />
                     <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
-                    <TextBox 
-                x:Name="PrinterPathInput1"
-                Text="" 
-                Margin="{StaticResource Margin10B}" 
-                />
+                    <controls:PrinterSelector Margin="{StaticResource Margin6B}" />
                 </StackPanel>
             </Border>
             <Border BorderBrush="LightGray" BorderThickness="1" Margin="6" Padding="6">
                 <StackPanel>
                     <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >2.641"x1"_serialized</TextBlock>
-            <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
-            <TextBox 
-                x:Name="CSVPathInput2"
-                Text="" 
-                Margin="{StaticResource Margin10B}" 
-                />
-            <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
-            <TextBox 
-                x:Name="PrinterPathInput2"
-                Text="" 
-                Margin="{StaticResource Margin10B}" 
-                />
+                    <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
+                    <controls:FilePathSelector Margin="{StaticResource Margin6B}" />
+                    <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
+                    <controls:PrinterSelector Margin="{StaticResource Margin6B}" />
                 </StackPanel>
             </Border>
         </StackPanel>
