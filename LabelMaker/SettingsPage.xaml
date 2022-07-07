@@ -24,7 +24,7 @@
                 <StackPanel>
                     <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >3"x2"_serialized</TextBlock>
                     <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
-                    <controls:FilePathSelector Margin="{StaticResource Margin6B}" />
+                    <controls:FilePathSelector FilePathLabelSize="Serialized3x2" Margin="{StaticResource Margin6B}" />
                     <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
                     <controls:PrinterSelector LabelSize="Serialized3x2"  Margin="{StaticResource Margin6B}" />
                 </StackPanel>
@@ -33,7 +33,7 @@
                 <StackPanel>
                     <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >2.641"x1"_serialized</TextBlock>
                     <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
-                    <controls:FilePathSelector Margin="{StaticResource Margin6B}" />
+                    <controls:FilePathSelector FilePathLabelSize="NonSerialized2x1" Margin="{StaticResource Margin6B}" />
                     <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
                     <controls:PrinterSelector LabelSize="NonSerialized2x1" Margin="{StaticResource Margin6B}" />
                 </StackPanel>
