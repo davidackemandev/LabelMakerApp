@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,26 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Printing;
 
 namespace LabelMaker
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SettingsPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SettingsPage : Page
     {
-
-        public MainWindow()
+        public SettingsPage()
         {
             InitializeComponent();
-            mainFrame.Content = new MainPage();
         }
 
         private void NavBtn_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Content = new SettingsPage();
+            mainFrame.Content = new MainWindow();
         }
-
     }
 }
