@@ -36,7 +36,7 @@
         </StackPanel>
         <Border 
                 Grid.Row="1" 
-            Background="White"
+                Background="White"
                 BorderBrush="LightGray" 
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Center" 
@@ -97,8 +97,8 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="MADE IN USA" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="2">
-                            <TextBlock Text="Logo"/>
-                            <TextBlock Text="www.mark-10.com"/>
+                            <Image Source="{StaticResource mark_10_black_noregDrawingImage}" Width="90"/>
+                            <TextBlock FontSize="9" HorizontalAlignment="Right" Text="www.mark-10.com"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>

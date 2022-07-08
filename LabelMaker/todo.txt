@@ -1,4 +1,6 @@
 ﻿TODO
 
-- Set up LabelPages subpages
-- Improve inputs for path to CSV and printer
+
+
+x Set up LabelPages subpages
+x Improve inputs for path to CSV and printer

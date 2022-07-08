@@ -24,17 +24,23 @@ namespace LabelMaker
         {
             InitializeComponent();
             LabelPagesFrame.Content = new LabelPages.Serialized3x2();
-            LabelSizeComboBox.SelectedIndex = 0;
+            LabelSizeComboBox.SelectedIndex = Settings1.Default.ActiveLabelSizeIndex;
         }
 
         private void LabelSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem LabelSize = (ComboBoxItem)LabelSizeComboBox.SelectedValue;
+            var CurrentIndex = LabelSizeComboBox.SelectedIndex;
+
             if (LabelSize.Content.ToString() == "3x2_serialized"){
                 LabelPagesFrame.Content = new LabelPages.Serialized3x2();
+                Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
+                Settings1.Default.Save();
             } else if(LabelSize.Content.ToString() == "2.641x1_nonserialized")
             {
                 LabelPagesFrame.Content = new LabelPages.NonSerialized2x1();
+                Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
+                Settings1.Default.Save();
             }
         }
     }

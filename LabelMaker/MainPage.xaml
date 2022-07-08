@@ -24,7 +24,8 @@
                 <TextBlock x:Name="SizeSelectLabel" Text="Label size" Margin="{StaticResource Margin6B}"/>
                 <ComboBox 
                     x:Name="LabelSizeComboBox" 
-                    Margin="{StaticResource Margin10B}" SelectionChanged="LabelSizeComboBox_SelectionChanged" 
+                    Margin="{StaticResource Margin10B}" 
+                    SelectionChanged="LabelSizeComboBox_SelectionChanged" 
                     >
                     <ComboBoxItem>3x2_serialized</ComboBoxItem>
                     <ComboBoxItem>2.641x1_nonserialized</ComboBoxItem>

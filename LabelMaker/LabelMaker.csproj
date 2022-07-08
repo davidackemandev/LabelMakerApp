@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\MARK-10-BLACK_NOREG_1200x130.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Barcoder" Version="1.1.0" />
     <PackageReference Include="Barcoder.Renderer.Image" Version="1.1.0" />
     <PackageReference Include="Barcoder.Renderer.Svg" Version="1.1.0" />
@@ -38,6 +42,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WpfBarCode\WpfBarCode.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\MARK-10-BLACK_NOREG_1200x130.png" />
   </ItemGroup>
 
   <ItemGroup>

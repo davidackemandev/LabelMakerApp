@@ -15,14 +15,14 @@
         </ResourceDictionary>
     </Page.Resources>
     <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" >
-                <TextBlock Text="Model" Margin="{StaticResource Margin6B}"/>
-                <ComboBox 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" >
+            <TextBlock Text="Model" Margin="{StaticResource Margin6B}"/>
+            <ComboBox 
                     x:Name="ModelNumberInput" 
                     DisplayMemberPath="ModelNumber"  
                     SelectedValuePath="ModelNumber" 
@@ -30,8 +30,8 @@
                     Margin="{StaticResource Margin10B}" 
                     SelectionChanged="ModelNumberInput_SelectionChanged"
                     />
-            </StackPanel>
-            <Border 
+        </StackPanel>
+        <Border 
                 Grid.Row="1" 
                 Background="White"
                 BorderBrush="LightGray"
@@ -39,43 +39,47 @@
                 HorizontalAlignment="Center" 
                 CornerRadius="8"
                 BorderThickness="1">
-                <!--2.641"x1" label-->
-                <Border 
+            <!--2.641"x1" label-->
+            <Border 
                 VerticalAlignment="Center"
                 x:Name="LabelTemplate"
                 Height="96" 
                 Width="253.536"
-                Padding="15">
-                    <Border.Resources>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="FontSize" Value="11" />
-                        </Style>
-                    </Border.Resources>
-                    <StackPanel VerticalAlignment="Center">
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock x:Name="ModelNumberLabel" Text="MODEL NO: "/>
-                            <TextBlock x:Name="ModelNumberOutput" Text="MODEL NO" FontWeight="Bold"/>
-                        </StackPanel>
-                       
-                        <TextBlock x:Name="ModelDescriptionOutput" Text="Model Description" Margin="{StaticResource Margin10B}"/>
-                        
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="MADE IN USA" VerticalAlignment="Center"/>
-                            <StackPanel Grid.Column="2">
-                                <TextBlock Text="Logo"/>
-                                <TextBlock Text="www.mark-10.com"/>
-                            </StackPanel>
-                        </Grid>
+                Padding="10">
+                <Border.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="11" />
+                    </Style>
+                </Border.Resources>
+                <StackPanel VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock x:Name="ModelNumberLabel" Text="MODEL NO: "/>
+                        <TextBlock x:Name="ModelNumberOutput" Text="MODEL NO" FontWeight="Bold"/>
                     </StackPanel>
-                </Border>
+
+                    <TextBlock 
+                            x:Name="ModelDescriptionOutput" 
+                            Text="Model Description" 
+                            TextWrapping="Wrap" 
+                            Margin="{StaticResource Margin10B}"
+                            />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="MADE IN USA" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="2">
+                            <Image Source="{StaticResource mark_10_black_noregDrawingImage}" Width="90"/>
+                            <TextBlock FontSize="9" HorizontalAlignment="Right" Text="www.mark-10.com"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
             </Border>
-            <Border Grid.Row="2">
-                <Button 
+        </Border>
+        <Border Grid.Row="2">
+            <Button 
                     Content="Print" 
                     Margin="{StaticResource Margin10B}" 
                     Click="ButtonPrint_Click"
@@ -85,7 +89,7 @@
                     FontSize="20"
                     Foreground="White"
                     />
-            </Border>
-        </Grid>
-  
+        </Border>
+    </Grid>
+
 </Page>
