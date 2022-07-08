@@ -31,7 +31,7 @@
             </Border>
             <Border BorderBrush="LightGray" BorderThickness="1" Margin="6" Padding="6">
                 <StackPanel>
-                    <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >2.641"x1"_serialized</TextBlock>
+                    <TextBlock FontWeight="Bold" Margin="{StaticResource Margin6B}" >2.641"x1"_nonserialized</TextBlock>
                     <TextBlock Text="Path to CSV" Margin="{StaticResource Margin6B}"/>
                     <controls:FilePathSelector FilePathLabelSize="NonSerialized2x1" Margin="{StaticResource Margin6B}" />
                     <TextBlock Text="Printer" Margin="{StaticResource Margin6B}"/>
