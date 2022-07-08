@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LabelMaker.LabelPages"
+      xmlns:wpfbarcode1="clr-namespace:WpfBarCode;assembly=WpfBarCode"
       d:DesignHeight="650" d:DesignWidth="450"
       mc:Ignorable="d" 
       Title="NonSerialized2x1">
@@ -52,10 +53,22 @@
                     </Style>
                 </Border.Resources>
                 <StackPanel VerticalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" >
-                        <TextBlock x:Name="ModelNumberLabel" Text="MODEL NO: "/>
-                        <TextBlock x:Name="ModelNumberOutput" Text="MODEL NO" FontWeight="Bold"/>
-                    </StackPanel>
+                    <TextBlock 
+                            x:Name="ModelNumberOutput" 
+                            Text="MODEL NO" 
+                            FontSize="16"
+                            FontWeight="Bold"
+                            />
+                    <wpfbarcode1:Barcode 
+                        x:Name="ModelNumberBarcode" 
+                        Code="ESM303" 
+                        CodeType="Code128A" 
+                        BarWidth="1" 
+                        TextVisibility="Collapsed"
+                        HorizontalAlignment="Left"
+                        Margin="0,4,0,0"
+                        Height="14" 
+                        />
 
                     <TextBlock 
                             x:Name="ModelDescriptionOutput" 
@@ -71,7 +84,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="MADE IN USA" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="2">
-                            <Image Source="{StaticResource mark_10_black_noregDrawingImage}" Width="90"/>
+                            <Image Source="{StaticResource mark_10_black_noregDrawingImage}" Width="80"/>
                             <TextBlock FontSize="9" HorizontalAlignment="Right" Text="www.mark-10.com"/>
                         </StackPanel>
                     </Grid>
