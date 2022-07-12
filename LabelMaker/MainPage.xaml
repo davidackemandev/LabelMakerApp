@@ -29,6 +29,7 @@
                     >
                     <ComboBoxItem>3x2_serialized</ComboBoxItem>
                     <ComboBoxItem>2.641x1_nonserialized</ComboBoxItem>
+                    <ComboBoxItem>2.641x1_fillable</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <Frame x:Name="LabelPagesFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>

@@ -41,6 +41,11 @@ namespace LabelMaker
                 LabelPagesFrame.Content = new LabelPages.NonSerialized2x1();
                 Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
                 Settings1.Default.Save();
+            } else if (LabelSize.Content.ToString() == "2.641x1_fillable")
+            {
+                LabelPagesFrame.Content = new LabelPages.Fillable2x1();
+                Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
+                Settings1.Default.Save();
             }
         }
     }
