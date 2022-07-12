@@ -18,6 +18,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CsvHelper;
+using System.Globalization;
+using CsvHelper.Configuration;
+
 namespace LabelMaker
 {
     public class ModularFunctions
@@ -39,30 +43,27 @@ namespace LabelMaker
             using StreamWriter sw = File.AppendText(file);
             sw.WriteLine(textWrite);
         }
+
+        // Using https://github.com/JoshClose/CsvHelper
         public static IEnumerable<Product> ReadCSV(string PathToCSV)
         {
-            string[] lines = File.ReadAllLines(PathToCSV);
-            Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
-
-            return lines
-                .Skip(1)
-                .Select(line =>
-                {
-                    string[] data = CSVParser.Split(line);
-                    return new Product(data[0], data[1]);
-                }).OrderBy(product => product.ModelNumber);
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                Encoding = Encoding.UTF8,
+                Delimiter = ",",
+            };
+            using (var reader = new StreamReader(PathToCSV))
+            using (var csv = new CsvReader(reader, config))
+            {
+                return csv.GetRecords<Product>().ToList();
+            }
+            
         }
 
         public class Product
         {
             public string ModelNumber { get; set; }
             public string Description { get; set; }
-
-            public Product(string modelNumber, string description)
-            {
-                ModelNumber = modelNumber;
-                Description = description;
-            }
 
         }
     }

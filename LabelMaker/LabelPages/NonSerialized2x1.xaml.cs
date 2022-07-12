@@ -36,6 +36,7 @@ namespace LabelMaker.LabelPages
         {
             string model = ((ComboBox)sender).SelectedValue.ToString()!;
             ModelNumberOutput.Text = model;
+            ModelNumberBarcode.Code = model;
             string description = _products.First(product => product.ModelNumber == model).Description;
             ModelDescriptionOutput.Text = description.Trim('"');
         }
