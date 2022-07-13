@@ -1,6 +1,6 @@
 ﻿TODO
 
-
+- Make fields required when printing
 
 x Set up LabelPages subpages
 x Improve inputs for path to CSV and printer
