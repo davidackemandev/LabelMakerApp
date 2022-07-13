@@ -26,14 +26,21 @@ namespace LabelMaker
 {
     public class ModularFunctions
     {
-        public static void SaveCSV(string size, string model, string serial = "")
+        public static void SaveCSV(string size, string model, string serial = "", string descriptionInput = "")
         {
             var dir = "data";
             var file = dir + "/history.csv";
 
             if (model == null) { model = ""; }
 
-            var textWrite = size + "," + model + "," + serial;
+            var date = DateTime.Now.Date.ToString();
+            var description = "\"" + descriptionInput + "\"";
+
+            var textWrite = date + "," + 
+                            size + "," + 
+                            model + "," + 
+                            serial + "," +
+                            description;
 
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
@@ -72,14 +79,23 @@ namespace LabelMaker
     {
         public static void Print(string Printer, Border LabelTemplate)
         {
-            PrintDialog printDlg = new();
-            printDlg.PrintQueue = new PrintQueue(new PrintServer(), Printer);
-
             Transform originalScale = LabelTemplate.LayoutTransform;
             Size originalSize = new Size(LabelTemplate.Width, LabelTemplate.Height);
-            LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(LabelTemplate.Width, LabelTemplate.Height)));
 
-            printDlg.PrintVisual(LabelTemplate, "Print Label");
+            try
+            {
+                PrintDialog printDlg = new();
+                printDlg.PrintQueue = new PrintQueue(new PrintServer(), Printer);
+
+                LabelTemplate.Arrange(new Rect(new Point(0, 0), new Size(LabelTemplate.Width, LabelTemplate.Height)));
+
+                printDlg.PrintVisual(LabelTemplate, "Print Label");
+            }
+            catch (Exception ex)
+            {
+                //Dialog Fail here
+                MessageBox.Show(ex.Message);
+            }
 
             LabelTemplate.LayoutTransform = originalScale;
             LabelTemplate.Measure(originalSize);

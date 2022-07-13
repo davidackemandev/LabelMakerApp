@@ -20,6 +20,8 @@ namespace LabelMaker.LabelPages
     /// </summary>
     public partial class Fillable2x1 : Page
     {
+        private string ModelNumber = "";
+        private string Description = "";
         public Fillable2x1()
         {
             InitializeComponent();
@@ -27,17 +29,20 @@ namespace LabelMaker.LabelPages
 
         private void ModelNumberInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ModelNumberOutput.Text = ModelNumberInput.Text;
-            ModelNumberBarcode.Code = ModelNumberInput.Text;
+            ModelNumber = ModelNumberInput.Text;
+            ModelNumberOutput.Text = ModelNumber;
+            ModelNumberBarcode.Code = ModelNumber;
         }
 
         private void ModelDescriptionInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ModelDescriptionOutput.Text = ModelDescriptionInput.Text;
+            Description = ModelDescriptionInput.Text;
+            ModelDescriptionOutput.Text = Description;
         }
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
         {
-            PrintFunctions.Print(Settings1.Default.Printer2x1, LabelTemplate);
+            ModularFunctions.SaveCSV("2x1_fillable", ModelNumberOutput.Text,"", Description);
+            PrintFunctions.Print(Settings1.Default.Printer2x1Fillable, LabelTemplate);
         }
     }
 }

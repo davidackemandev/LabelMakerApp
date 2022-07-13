@@ -19,12 +19,14 @@ using static LabelMaker.ModularFunctions;
 
 namespace LabelMaker.LabelPages
 {
-    /// <summary>
+        /// <summary>
     /// Interaction logic for _2x1_nonserialized.xaml
     /// </summary>
     public partial class NonSerialized2x1 : Page
     {
         private Product[] _products;
+        private string ModelNumber = "";
+        private string Description = "";
         public NonSerialized2x1()
         {
             InitializeComponent();
@@ -34,15 +36,16 @@ namespace LabelMaker.LabelPages
         
         private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string model = ((ComboBox)sender).SelectedValue.ToString()!;
-            ModelNumberOutput.Text = model;
-            ModelNumberBarcode.Code = model;
-            string description = _products.First(product => product.ModelNumber == model).Description;
-            ModelDescriptionOutput.Text = description.Trim('"');
+            ModelNumber = ((ComboBox)sender).SelectedValue.ToString()!;
+            ModelNumberOutput.Text = ModelNumber;
+            ModelNumberBarcode.Code = ModelNumber;
+            Description = _products.First(product => product.ModelNumber == ModelNumber).Description;
+            ModelDescriptionOutput.Text = Description;
         }
 
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
         {
+            ModularFunctions.SaveCSV("2x1_nonserialized", ModelNumber, "", Description);
             PrintFunctions.Print(Settings1.Default.Printer2x1, LabelTemplate);
         }
     }

@@ -47,6 +47,10 @@ namespace LabelMaker.UserControls
             {
                 SelectedPathTxtBox.Text = Settings1.Default.Printer2x1;
             }
+            else if (LabelSize == "Fillable2x1")
+            {
+                SelectedPathTxtBox.Text = Settings1.Default.Printer2x1Fillable;
+            }
         }
 
         private void SelectedPathTxtBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -59,6 +63,11 @@ namespace LabelMaker.UserControls
             else if (LabelSize == "NonSerialized2x1")
             {
                 Settings1.Default.Printer2x1 = SelectedPathTxtBox.Text;
+                Settings1.Default.Save();
+            }
+            else if (LabelSize == "Fillable2x1")
+            {
+                Settings1.Default.Printer2x1Fillable = SelectedPathTxtBox.Text;
                 Settings1.Default.Save();
             }
         }

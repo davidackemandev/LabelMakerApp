@@ -25,6 +25,10 @@ namespace LabelMaker.LabelPages
     public partial class Serialized3x2 : Page
     {
         private Product[] _products;
+        private string ModelNumber = "";
+        private string SerialNumber = "";
+        private string Description = "";
+        
         public Serialized3x2()
         {
             InitializeComponent();
@@ -34,25 +38,25 @@ namespace LabelMaker.LabelPages
             ModelNumberInput.ItemsSource = _products;
         }
 
-        private void ButtonPrint_Click(object sender, RoutedEventArgs e)
-        {
-            ModularFunctions.SaveCSV("3x2", ModelNumberOutput.Text, SerialNumberInput.Text);
-            PrintFunctions.Print(Settings1.Default.Printer3x2, LabelTemplate);
-        }
-
         private void SerialNumberInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            SerialNumberOutput.Text = SerialNumberInput.Text;
-            SerialNumberBarcode.Code = SerialNumberInput.Text;
+            SerialNumber = SerialNumberInput.Text;
+            SerialNumberOutput.Text = SerialNumberBarcode.Code = SerialNumber;
         }
 
         private void ModelNumberInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string model = ((ComboBox)sender).SelectedValue.ToString()!;
-            ModelNumberOutput.Text = model;
-            ModelNumberBarcode.Code = model;
-            string description = _products.First(product => product.ModelNumber == model).Description;
-            ModelDescriptionOutput.Text = description.Trim('"');
+            ModelNumber = ((ComboBox)sender).SelectedValue.ToString()!;
+            ModelNumberOutput.Text = ModelNumber;
+            ModelNumberBarcode.Code = ModelNumber;
+            Description = _products.First(product => product.ModelNumber == ModelNumber).Description;
+            ModelDescriptionOutput.Text = Description;
+        }
+
+        private void ButtonPrint_Click(object sender, RoutedEventArgs e)
+        {
+            ModularFunctions.SaveCSV("3x2_serialized", ModelNumber, SerialNumber, Description);
+            PrintFunctions.Print(Settings1.Default.Printer3x2, LabelTemplate);
         }
     }
 }

@@ -94,5 +94,17 @@ namespace LabelMaker {
                 this["ActiveLabelSizeIndex"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Printer2x1Fillable {
+            get {
+                return ((string)(this["Printer2x1Fillable"]));
+            }
+            set {
+                this["Printer2x1Fillable"] = value;
+            }
+        }
     }
 }

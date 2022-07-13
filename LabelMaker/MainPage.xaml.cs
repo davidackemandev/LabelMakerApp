@@ -32,21 +32,21 @@ namespace LabelMaker
             ComboBoxItem LabelSize = (ComboBoxItem)LabelSizeComboBox.SelectedValue;
             var CurrentIndex = LabelSizeComboBox.SelectedIndex;
 
-            if (LabelSize.Content.ToString() == "3x2_serialized"){
-                LabelPagesFrame.Content = new LabelPages.Serialized3x2();
-                Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
-                Settings1.Default.Save();
-            } else if(LabelSize.Content.ToString() == "2.641x1_nonserialized")
+            switch (LabelSize.Content.ToString())
             {
-                LabelPagesFrame.Content = new LabelPages.NonSerialized2x1();
-                Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
-                Settings1.Default.Save();
-            } else if (LabelSize.Content.ToString() == "2.641x1_fillable")
-            {
-                LabelPagesFrame.Content = new LabelPages.Fillable2x1();
-                Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
-                Settings1.Default.Save();
+                case "3x2_serialized":
+                    LabelPagesFrame.Content = new LabelPages.Serialized3x2();
+                    break;
+                case "2.641x1_nonserialized":
+                    LabelPagesFrame.Content = new LabelPages.NonSerialized2x1();
+                    break;
+                case "2.641x1_fillable":
+                    LabelPagesFrame.Content = new LabelPages.Fillable2x1();
+                    break;
             }
+
+            Settings1.Default.ActiveLabelSizeIndex = CurrentIndex;
+            Settings1.Default.Save();
         }
     }
 }
