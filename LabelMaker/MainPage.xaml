@@ -1,16 +1,16 @@
 ﻿<Page x:Class="LabelMaker.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:LabelMaker"
       xmlns:wpfbarcode1="clr-namespace:WpfBarCode;assembly=WpfBarCode"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       Title="MainPage">
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/StyleDictionary.xaml"/>
+                <ResourceDictionary Source="/StyleDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -21,19 +21,17 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock x:Name="SizeSelectLabel" Text="Label size" Margin="{StaticResource Margin6B}"/>
-                <ComboBox 
-                    x:Name="LabelSizeComboBox" 
-                    Margin="{StaticResource Margin10B}" 
-                    SelectionChanged="LabelSizeComboBox_SelectionChanged" 
-                    >
+                <TextBlock x:Name="SizeSelectLabel" Text="Label Size" Margin="{StaticResource Margin6B}" />
+                <ComboBox
+                    x:Name="LabelSizeComboBox"
+                    Margin="{StaticResource Margin10B}"
+                    SelectionChanged="LabelSizeComboBox_SelectionChanged">
                     <ComboBoxItem>3x2_serialized</ComboBoxItem>
                     <ComboBoxItem>2.641x1_nonserialized</ComboBoxItem>
                     <ComboBoxItem>2.641x1_fillable</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-            <Frame x:Name="LabelPagesFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
-            
+            <Frame x:Name="LabelPagesFrame" Grid.Row="1" NavigationUIVisibility="Hidden" />
         </Grid>
     </Border>
 </Page>

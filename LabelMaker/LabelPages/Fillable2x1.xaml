@@ -9,6 +9,7 @@
       d:DesignHeight="650" d:DesignWidth="450"
       Title="Typable2x1"
       FontFamily="Arial"
+      Background="#ffffff"
       >
     <Page.Resources>
         <ResourceDictionary>

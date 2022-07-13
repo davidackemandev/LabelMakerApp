@@ -7,7 +7,8 @@
       d:DesignHeight="650" d:DesignWidth="450"
       mc:Ignorable="d"
       Title="NonSerialized2x1"
-      FontFamily="Arial">
+      FontFamily="Arial"
+      Background="#ffffff">
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -22,7 +23,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock Text="Model" Margin="{StaticResource Margin6B}" />
+            <TextBlock Text="Model Number" Margin="{StaticResource Margin6B}" />
             <ComboBox
                 x:Name="ModelNumberInput"
                 DisplayMemberPath="ModelNumber"
