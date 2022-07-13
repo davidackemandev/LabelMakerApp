@@ -89,10 +89,8 @@
                     Margin="{StaticResource Margin10B}" 
                     Click="ButtonPrint_Click"
                     Height="60"
-                    Background="Green"
                     FontWeight="Bold"
                     FontSize="20"
-                    Foreground="White"
                     />
         </Border>
     </Grid>
